@@ -27,6 +27,7 @@
         service:
           - name: ALL
         name: FromInternet
+        ips_sensor: "default"
         status: enable
         schedule: always
         logtraffic: all
