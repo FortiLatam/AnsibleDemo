@@ -8,13 +8,17 @@
    vars:
      keypair: fgallego-key-ssh
      instance_type: t2.micro
-     image: ami-00874d747dde814fa
+     # Ubuntu
+     #image: ami-00874d747dde814fa
+     # LAMP
+     image: ami-06ed653caf4280bd0
      wait: yes
      group: webserver
      count: 1
      region: us-east-1
      security_group: ec2-ansible-demo-sg
      subnet_id: subnet-0d5c8dcae98522246
+     vpc_id: vpc-08ed6075b2da31c09
    
    tasks:
 
@@ -24,6 +28,7 @@
          name: "{{ security_group }}"
          description: Security Group for webserver Servers
          region: "{{ region }}"
+         vpc_id: "{{ vpc_id }}"
          rules:
             - proto: tcp
               from_port: 22
