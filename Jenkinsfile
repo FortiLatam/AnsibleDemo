@@ -3,15 +3,19 @@ pipeline {
 
     stages {
         
-        stage ("checkout") {
-            steps {
-                        checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [],                                                     userRemoteConfigs: [[url: 'https://github.com/akannan1087/myAnsibleInfraRepo']]])         
+        stage('Clone repository') { 
+            steps { 
+                script{
+                checkout scm
+                }
             }
-        }
+        } 
+
         stage('execute') {
             steps {
                 // execute ansible playbook
-                ansiblePlaybook playbook: 'create-EC2.yml'
+                //ansiblePlaybook playbook: 'create-ec2.yaml'
+                ansiblePlaybook installation: 'Ansible',  playbook: 'create-ec2.yaml'
             }
         }
     }
