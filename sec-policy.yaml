@@ -1,0 +1,40 @@
+---
+- hosts: fortigates
+  collections:
+    - fortinet.fortios
+  connection: httpapi
+  vars:
+   vdom: "root"
+   ansible_httpapi_use_ssl: yes
+   ansible_httpapi_validate_certs: no
+   ansible_httpapi_port: 443
+  tasks:
+  - name: Configure NGFW IPv4/IPv6 application policies.
+    fortios_firewall_security_policy:
+      vdom:  "{{ vdom }}"
+      state: "present"
+      firewall_security_policy:
+        action: "accept"
+        app_category:
+         -
+            id:  "5"
+        app_group:
+         -
+            name: "default_name_7 (source application.group.name)"
+        application:
+         -
+            id:  "9"
+        application_list: "<your_own_value> (source application.list.name)"
+        av_profile: "<your_own_value> (source antivirus.profile.name)"
+        cifs_profile: "<your_own_value> (source cifs.profile.name)"
+        comments: "<your_own_value>"
+        dlp_profile: "<your_own_value> (source dlp.profile.name)"
+        dlp_sensor: "<your_own_value> (source dlp.sensor.name)"
+        dnsfilter_profile: "<your_own_value> (source dnsfilter.profile.name)"
+        dstaddr:
+         -
+            name: "default_name_18 (source firewall.address.name firewall.addrgrp.name firewall.vip.name firewall.vipgrp.name system.external-resource.name)"
+        dstaddr_negate: "enable"
+        dstaddr4:
+         -
+            name: "default_name_21 (source firewall.address.name firewall.addrgrp.name firewall.vip.name firewall.vipgrp.name)"

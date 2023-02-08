@@ -1,0 +1,24 @@
+---
+- hosts: fortigates
+  connection: httpapi
+  collections:
+   - fortinet.fortios
+  vars:
+   vdom: "root"
+   ansible_httpapi_use_ssl: yes
+   ansible_httpapi_validate_certs: no
+   ansible_httpapi_port: 8443
+  tasks:
+  - name: Add Dynamic addr
+    fortios_json_generic:
+      vdom:  "{{ vdom }}"
+      json_generic:
+        method: "POST"
+        path: "/api/v2/cmdb/firewall/address"
+        dictbody:
+          name: "Test-Meli"
+          type: "dynamic"
+          sdn:
+            q_origin_key: "AWSSDN"
+          color: "0"
+          filter: "Tag.EBC=Meli"
