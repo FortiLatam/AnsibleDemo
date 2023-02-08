@@ -22,9 +22,9 @@ pipeline {
         stage('Configure FortiGate') {
             steps {
                 // execute ansible playbook to create dynamic object
-                ansiblePlaybook installation: 'Ansible', inventory: 'fgt-hosts', playbook: 'custom-api-dyn-addr.yaml'
+                //ansiblePlaybook installation: 'Ansible', inventory: 'fgt-hosts', playbook: 'custom-api-dyn-addr.yaml'
                 // execute ansible playbook to security policy
-                ///ansiblePlaybook installation: 'Ansible', inventory: 'fgt-hosts', playbook: 'sec-policy.yaml'
+                ansiblePlaybook installation: 'Ansible', inventory: 'fgt-hosts', playbook: 'sec-policy.yaml'
             }
         }
     }
