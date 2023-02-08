@@ -14,6 +14,7 @@
      count: 1
      region: us-east-1
      security_group: ec2-ansible-demo-sg
+     subnet_id: subnet-0d5c8dcae98522246
    
    tasks:
 
@@ -54,6 +55,7 @@
                       region={{ region }} 
                       keypair={{ keypair }}
                       count={{count}}
+                      vpc_subnet_id={{ subnet_id }}
        register: ec2
      - name: Task # 3 Add Tagging to EC2 instance
        local_action: ec2_tag resource={{ item.id }} region={{ region }} state=present

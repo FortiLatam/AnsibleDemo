@@ -27,6 +27,8 @@
         service:
           - name: ALL
         name: FromInternet
+        utm_status: "enable"
+        ssl_ssh_profile: "certificate-inspection"
         ips_sensor: "default"
         status: enable
         schedule: always
