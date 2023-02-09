@@ -20,5 +20,5 @@
           type: "dynamic"
           sdn:
             q_origin_key: "AWSSDN"
-          color: "0"
+          color: "18"
           filter: "Tag.EBC=Meli"
