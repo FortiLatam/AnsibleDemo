@@ -16,9 +16,9 @@
       firewall_policy:
         policyid: 27
         srcintf:
-          - name: port1
+          - name: gwlb1-tunnels
         dstintf:
-          - name: port1
+          - name: gwlb1-tunnels
         srcaddr:
           - name: all
         dstaddr:
