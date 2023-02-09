@@ -17,8 +17,8 @@ scanners:
 #  fortipentest_scanner: false #true|false
 #  full_scan: true #true|false
 
-languages:
-  - ansible
+#languages:
+#  - ansible
 
 fail_pipeline:
   risk_rating: 8
