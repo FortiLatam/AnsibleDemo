@@ -17,7 +17,7 @@
      count: 1
      region: us-east-1
      security_group: ec2-ansible-demo-sg
-     subnet_id: subnet-0b91dfa098e334847
+     subnet_id: subnet-023af70e3ce971566
      vpc_id: vpc-0c46795fe87f72863
    
    tasks:
